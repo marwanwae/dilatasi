@@ -3,6 +3,7 @@
 namespace Tests\Feature;
 
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use Illuminate\Http\UploadedFile;
 use Tests\TestCase;
 
 class ExampleTest extends TestCase
@@ -17,5 +18,8 @@ class ExampleTest extends TestCase
         $response = $this->get('/');
 
         $response->assertStatus(200);
+
+        $image = UploadedFile::fake()->image("marwan.png");
+        dd($image);
     }
 }

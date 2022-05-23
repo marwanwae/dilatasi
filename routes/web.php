@@ -1,6 +1,9 @@
 <?php
 
+use App\Http\Controllers\AdminLteController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\FileController;
+use App\Http\Controllers\DatatablesController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,3 +19,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::post("/file/upload", [FileController::class, 'upload']);
+Route::get("/datatable", [DatatablesController::class, "index"]);
+Route::get("/ajax/datatable", [DatatablesController::class, "getAjax"])->name("datatables.data");

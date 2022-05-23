@@ -18,4 +18,14 @@ class FileStorageTest extends TestCase
 
         $this->assertSame("Belajar Laravel Dasar", $content);
     }
+
+    public function testPublic()
+    {
+        $fileSystem = Storage::disk("public");
+        $fileSystem->put("file.txt", "Belajar Laravel Dasar");
+
+        $content = $fileSystem->get("file.txt");
+
+        $this->assertSame("Belajar Laravel Dasar", $content);
+    }
 }
